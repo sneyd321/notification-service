@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+spec:
+  selector:
+    matchLabels:
+      run: notification-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: notification-service
+    spec:
+      containers:
+      - name: notification-service
+        image: sneyd321/notification-service
+        ports:
+        - containerPort: 8093
+
+  
+        
+      imagePullSecrets:
+        - name: key
